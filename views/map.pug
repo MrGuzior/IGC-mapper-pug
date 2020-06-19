@@ -1,0 +1,8 @@
+extends layout
+block content
+    #map
+    script.
+        var map = L.map('map',{ center: [42.375562, -71.106870], zoom: 14});
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        	attribution: '© OpenStreetMap'
+        }).addTo(map);
