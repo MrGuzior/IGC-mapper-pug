@@ -2,7 +2,16 @@ extends layout
 block content
     #map
     script.
-        var map = L.map('map',{ center: [42.375562, -71.106870], zoom: 14});
+        let vangso = !{JSON.stringify(coords)};
+        
+        var map = L.map('map',{ center: [vangso.N, vangso.E], zoom: 8});
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         	attribution: '© OpenStreetMap'
         }).addTo(map);
+        L.circleMarker([vangso.N, vangso.E]).addTo(map)
+        .bindPopup(
+            vangso.string
+        )
+        .openPopup();
+        L.polyline(vangso.path).addTo(map);
+        L.polyline(vangso.task, {color:'green'}).addTo(map);
