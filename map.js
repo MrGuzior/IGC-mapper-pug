@@ -1,5 +1,5 @@
 function createMap(flight) {
-    let flightPathLine = L.polyline(flight.path);
+    let flightPathLine = L.polyline(flight.path, { weight: 2, smoothFactor: 2 });
     let flightTaskLine = L.polyline(flight.task, { color: 'green' });
 
     const pathCenter = flightPathLine.getBounds().getCenter();
