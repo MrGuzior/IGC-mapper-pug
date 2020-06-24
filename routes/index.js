@@ -9,12 +9,15 @@ router.get('/', function (req, res, next) {
 });
 
 let Flight = (id) => {
+  const task = parser.getTaskCoords(id);
+  const path = parser.getFlightCoords(id);
+  const flight = parser.getFlightData(id);
   return {
-    N: 59.101,
-    E: 17.211,
-    flight: parser.getFlightData(id),
-    task: parser.getTaskCoords(id),
-    path: parser.getFlightCoords(id)
+    startLatitude: task[0][0],
+    startLongitude: task[0][1],
+    flightData: flight,
+    task: task,
+    path: path
   }
 }
 
