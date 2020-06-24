@@ -24,10 +24,16 @@ let Flight = (id) => {
 router.get('/map/:id', function (req, res) {
   let flightData = Flight(req.params.id);
   res.render('map', {
-    title: "Express API",
+    title: "IGC Mapper",
     flight: flightData
   });
 });
+
+router.get('/chart', (req, res) => {
+  res.render('chart', {
+    title: "IGC Chart"
+  })
+})
 
 module.exports = router;
 

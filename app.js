@@ -25,6 +25,9 @@ app.use('/users', usersRouter);
 app.get('/javascript/map.js', (req, res) => {
   res.sendFile(__dirname + '/map.js');
 })
+app.get('/javascript/chart.js', (req, res) => {
+  res.sendFile(__dirname + '/chart.js');
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
